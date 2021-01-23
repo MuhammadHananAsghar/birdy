@@ -41,18 +41,3 @@ function getEmoji(control) {
     document.getElementById("messageBox").value += control.innerHTML;
     document.getElementById('messageBox').focus();
 }
-
-var btnMic = document.getElementById('microphone');
-var modalMic = document.getElementById("ModalMic");
-var spanMic = document.getElementById('closed');
-btnMic.onclick = function() {
-  modalMic.style.display = "block";
-}
-spanMic.onclick = function() {
-  modalMic.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modalMic) {
-    modalMic.style.display = "none";
-  }
-}
