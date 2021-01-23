@@ -59,7 +59,6 @@ function StartChat(key, name, photo) {
             ShowResults(key, name, photo);
         }
         document.getElementById('chat').innerHTML = "";
-        document.getElementById("RECENTUSERS").innerHTML = "";
         // Displaying Previous Messages
         LoadPreviousMessages(chatKey);
     });
