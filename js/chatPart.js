@@ -1,8 +1,36 @@
 var chatKey = '';
 var li_data = '';
-var friends_lists = {};
 var user_name_chat = "";
 
+// Add
+function StartChat_a(key, name, photo) {
+    document.getElementById('footer').style.display = 'block';
+    var friendList = { friendID: key, userID: currentUserKey };
+
+    var db = firebase.database().ref('connection_list');
+    var flag = false;
+    db.on("value", function(connections) {
+        connections.forEach(function(data) {
+            var user = data.val();
+            if ((user.friendID === friendList.friendID && user.userID === friendList.userID) || (user.userID === friendList.friendID && user.friendID === friendList.userID)) {
+                flag = true;
+                chatKey = data.key;
+            }
+
+        });
+
+        if (flag === false) {
+            chatKey = firebase.database().ref('connection_list').push(friendList, function(error) {
+                if (error) {
+                } else {
+                   location.reload();
+                }
+            }).getKey();
+        } else {
+           location.reload(); 
+        }
+    });
+}
 // WITH REGISTERED USERS
 function StartChat(key, name, photo) {
     document.getElementById('footer').style.display = 'block';
@@ -31,9 +59,9 @@ function StartChat(key, name, photo) {
             ShowResults(key, name, photo);
         }
         document.getElementById('chat').innerHTML = "";
+        document.getElementById("RECENTUSERS").innerHTML = "";
         // Displaying Previous Messages
         LoadPreviousMessages(chatKey);
-
     });
 }
 
@@ -102,6 +130,7 @@ function SendImage(event) {
 // Loading Recent ChatList
 function LoadChatList() {
     document.getElementById('loader').style.display = "block";
+    const friends_lists = {};
     var db = firebase.database().ref('connection_list');
     db.on('value', function(lists) {
         document.getElementById("RECENTUSERS").innerHTML = "";

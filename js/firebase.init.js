@@ -1,1 +1,12 @@
-var _0x2f45=['AIzaSyD0GR1E2-6djypgP7IwzpqIxZ1ZNuI_lHM','782339vKdBEZ','17WeEOvw','34776344281','664610erWJBr','109dWOEAe','12697HRLYmg','4714lOAzqS','G-TEX69MKNRK','1:34776344281:web:c305c2403b5273c12b40c8','691798YwZcbI','muhammad-hanan-asghar-b71aa.appspot.com','266470CINTjQ','126998iUPzBS','initializeApp','muhammad-hanan-asghar-b71aa.firebaseapp.com','muhammad-hanan-asghar-b71aa'];var _0xfc20=function(_0x2d1a30,_0x14aa3d){_0x2d1a30=_0x2d1a30-0xd4;var _0x2f450f=_0x2f45[_0x2d1a30];return _0x2f450f;};var _0x1e9018=_0xfc20;(function(_0x31dd63,_0x26b5e3){var _0x3731c9=_0xfc20;while(!![]){try{var _0x3f841=parseInt(_0x3731c9(0xde))+-parseInt(_0x3731c9(0xdb))+parseInt(_0x3731c9(0xe4))*parseInt(_0x3731c9(0xd7))+parseInt(_0x3731c9(0xe3))+-parseInt(_0x3731c9(0xd5))+parseInt(_0x3731c9(0xdd))+-parseInt(_0x3731c9(0xd8))*-parseInt(_0x3731c9(0xd6));if(_0x3f841===_0x26b5e3)break;else _0x31dd63['push'](_0x31dd63['shift']());}catch(_0x55816b){_0x31dd63['push'](_0x31dd63['shift']());}}}(_0x2f45,0x860d2));var firebaseConfig={'apiKey':_0x1e9018(0xe2),'authDomain':_0x1e9018(0xe0),'projectId':_0x1e9018(0xe1),'storageBucket':_0x1e9018(0xdc),'messagingSenderId':_0x1e9018(0xd4),'appId':_0x1e9018(0xda),'measurementId':_0x1e9018(0xd9)};firebase[_0x1e9018(0xdf)](firebaseConfig),firebase['analytics']();
+var firebaseConfig = {
+    apiKey: "AIzaSyD0GR1E2-6djypgP7IwzpqIxZ1ZNuI_lHM",
+    authDomain: "muhammad-hanan-asghar-b71aa.firebaseapp.com",
+    projectId: "muhammad-hanan-asghar-b71aa",
+    storageBucket: "muhammad-hanan-asghar-b71aa.appspot.com",
+    messagingSenderId: "34776344281",
+    appId: "1:34776344281:web:c305c2403b5273c12b40c8",
+    measurementId: "G-TEX69MKNRK"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();

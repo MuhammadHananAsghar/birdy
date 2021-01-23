@@ -27,7 +27,7 @@ function PopulateAllUsersFoundedInDatabase() {
                       </div>
                     </div>
                     <div class="two">
-                      <div class="buttonChat" onclick="StartChat('${data.key}', '${user.name}','${user.photo}')">
+                      <div class="buttonChat" onclick="StartChat_a('${data.key}', '${user.name}','${user.photo}')">
                         Chat
                       </div>
                     </div>
