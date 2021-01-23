@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <title>Birdy</title>
+  </head>
+  <body>
+    <div id="body">
+      <section class="ChatList" id="CHATLIST">
+        <div class="ChatListHeader">
+          <div class="HeaderContents">
+            <img id="USRIMAGE" src="https://randomuser.me/api/portraits/women/29.jpg" alt="">
+            <small id="USERNAME"></small>
+          </div>
+          <i class="las la-sign-out-alt" onclick="SignOut();"></i>
+        </div>
+        <div class="ChatListSearch">
+          <input type="text" placeholder="search" name="" value="" id="recentInput">
+        </div>
+        <div class="ChatUsersList">
+          <h4 class="titleRecent">Recent</h4>
+          <ul id="RECENTUSERS">
+          </ul>
+        </div>
+      </section>
+      <section class="ChatSection" id="CHATSECTION">
+        <div class="Triggers">
+          <div id="NavTrigger" onclick="trigger();">
+            <i class="las la-angle-right"></i>
+          </div>
+          <div id="NavTriggerAside" onclick="triggerAside();">
+            <i class="las la-angle-left"></i>
+          </div>
+        </div>
+        <div class="lds-heart" id="loader"><div></div></div>
+        <div class="ChatArea" id="Area">
+          <div class="HeaderArea">
+            <div class="headerContent">
+              <img id="chatImg" src="https://randomuser.me/api/portraits/men/17.jpg" alt="">
+              <small id="chatName">Muhammad Hanan Asghar</small>
+            </div>
+          </div>
+          <div class="BodyArea" id="scroll">
+            <ul id="chat">
+
+            </ul>
+          </div>
+          <div class="FooterArea" id="footer">
+            <div class="footerIcons">
+              <i class="las la-grin-alt" id="emoji"></i>
+              <i class="las la-file-image" onclick="ChooseImage();"></i>
+              <input type="file" accept="image/*" id="ImageFile" style="display: none;" onchange="SendImage(this);">
+            </div>
+            <div class="footerInput">
+              <input type="text" name="" value="" id='messageBox' placeholder="Type message">
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="UserList" id="USERLIST">
+        <div class="UserListSearch">
+          <input type="text" placeholder="search" name="" value="" id="AllUsersInput">
+        </div>
+        <div class="UserUsersList">
+          <h4 class="titleall">All Users</h4>
+          <ul id="ALLUSERSID">
+          </ul>
+        </div>
+      </section>
+      <div id="Modal" class="modal">
+        <div class="modal-content">
+          <i class="las la-times" id="close"></i>
+          <div id="EmojiDiv">
+          </div>
+        </div>
+      </div>
+      <div id="ModalMic" class="modal">
+        <div class="modal-mic">
+          <i class="las la-times" id="closed"></i>
+          <div id="MicDiv">
+            <i class="las la-microphone" id="micstate" onclick="Record(this);"></i>
+            <small id="code">start</small>
+          </div>
+        </div>
+      </div>
+      <section class="login" id="LOGIN">
+        <i class="las la-dove"></i>
+        <h1>Birdy</h1>
+        <div class="loginButton" onclick="SignIn();">
+          Google Sign In
+        </div>
+      </section>
+    </div>
+      <script src="js/jquery-3.5.1.min.js" charset="utf-8"></script>
+      <script src="js/lightbox-plus-jquery.min.js" charset="utf-8"></script>
+      <script type="text/javascript" src="js/script.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase.js"></script>
+      <script src="js/firebase.init.js" charset="utf-8"></script>
+      <script src="js/auth.js" charset="utf-8"></script>
+      <script src="js/chatPart.js" charset="utf-8"></script>
+      <script src="js/fetchusers.js" charset="utf-8"></script>
+      <script src="js/audio.js" charset="utf-8"></script>
+      <script src="js/filter.js" charset="utf-8"></script>
+  </body>
+</html>

@@ -1,0 +1,655 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;900&display=swap');
+:root{
+  --dark-accent: #30315a;
+  --light-accent: #434262;
+  --pink-color: #d76d8c;
+  --text-color: #b3b7d1;
+  --font: 'Poppins', sans-serif;;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+#body{
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+.ChatList{
+  height: 100%;
+  background-color: var(--light-accent);
+  width: 0px;
+  transition: width 0.4s;
+  display: none;
+}
+.ChatSection{
+  height: 100%;
+  width: 100%;
+  background-color: var(--dark-accent);
+  display: none;
+}
+.Triggers{
+  display: flex;
+  justify-content: space-between;
+}
+.UserList{
+  width: 0px;
+  background-color: var(--light-accent);
+  transition: width 0.4s;
+  display: none;
+}
+#NavTrigger{
+  height: 90px;
+  width: 50px;
+  color: var(--text-color);
+  background-color: var(--light-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  cursor: pointer;
+  z-index: 999;
+}
+#NavTrigger i{
+  font-size: 30px;
+}
+#NavTriggerAside{
+  height: 90px;
+  width: 50px;
+  color: var(--text-color);
+  background-color: var(--light-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  cursor: pointer;
+  z-index: 999;
+}
+#NavTriggerAside i{
+  font-size: 30px;
+}
+.active{
+  width: 100%;
+}
+.activeNav{
+  visibility: hidden;
+}
+.activeArea{
+  display: none;
+}
+.HeaderArea{
+  height: 100px;
+  border: 1px solid var(--light-accent);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.HeaderArea img{
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+}
+.HeaderArea small{
+  color: var(--text-color);
+  font-size: 15px;
+  padding-top: 5px;
+}
+.HeaderArea .headerContent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.FooterArea{
+  height: 200px;
+  border: 1px solid var(--light-accent);
+  display: none;
+}
+.FooterArea .footerIcons{
+  display: flex;
+  border-bottom: 1px solid var(--light-accent);
+}
+.FooterArea .footerIcons i{
+  font-size: 25px;
+  color: var(--text-color);
+  padding: 1rem;
+  cursor: pointer;
+  transition: color 0.4s;
+}
+.FooterArea .footerIcons i:hover{
+  color: var(--light-accent);
+}
+.footerInput{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.footerInput input{
+  width: 90%;
+  height: 100px;
+  background-color: var(--light-accent);
+  padding: 1rem;
+  border: 1px solid var(--light-accent);
+  border-radius: 0px;
+  color: var(--text-color);
+  outline: none;
+}
+.BodyArea{
+  margin-top: 10px;
+  height: Calc(100vh - 300px);
+  width: 100%;
+  overflow-y: scroll;
+}
+.BodyArea .userMessage{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  margin: 1rem 0rem;
+}
+.BodyArea .userMessage .main{
+  display: flex;
+}
+.BodyArea .userMessage img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+.BodyArea .userMessage .messageUSER{
+  height: auto;
+  width: auto;
+  max-width: 350px;
+  padding: 15px;
+  background-color: var(--light-accent);
+  margin-left: 15px;
+  color: var(--text-color);
+}
+.BodyArea .meMessage{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  margin: 1rem 0rem;
+}
+.BodyArea .meMessage .main{
+  display: flex;
+}
+.BodyArea .meMessage img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.BodyArea .meMessage .messageME{
+  height: auto;
+  width: auto;
+  max-width: 350px;
+  padding: 15px;
+  background-color: var(--pink-color);
+  margin-right: 15px;
+  color: #fff;
+  opacity: 0.9;
+}
+.userMessageAudio{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  margin: 1rem 0rem;
+  justify-content: center;
+}
+.userMessageAudio img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+.userMessageAudio .main{
+  display: flex;
+  flex-direction: row;
+}
+.userMessageAudio .main .message{
+  height: 100px;
+  width: 100px;
+  padding: 1rem;
+  background-color: var(--light-accent);
+  margin-left: 15px;
+  color: var(--text-color);
+  font-size: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.meMessageAudio{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  margin: 1rem 0rem;
+}
+.meMessageAudio img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.meMessageAudio .main{
+  display: flex;
+  flex-direction: row;
+}
+.meMessageAudio .main .message{
+  height: 100px;
+  width: 100px;
+  padding: 1rem;
+  background-color: var(--pink-color);
+  margin-right: 15px;
+  color: #fff;
+  opacity: 0.9;
+  font-size: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.userMessageImage{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  margin: 1rem 0rem;
+  justify-content: center;
+}
+.userMessageImage .main{
+  display: flex;
+  flex-direction: row;
+}
+.userMessageImage #profImage{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-left: 15px;
+}
+
+.userMessageImage .main img{
+  height: 200px;
+  width: auto;
+  margin-left: 15px;
+  border: 2px solid var(--dark-accent);
+}
+.meMessageImage{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  margin: 1rem 0rem;
+}
+.meMessageImage .main{
+  display: flex;
+  flex-direction: row;
+}
+.meMessageImage #profImage{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.meMessageImage .main img{
+  height: 200px;
+  width: auto;
+  margin-right: 15px;
+  border: 2px solid var(--dark-accent);
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 11111111;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+  background-color: var(--light-accent);
+}
+#close{
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+#EmojiDiv{
+  padding: 1rem;
+  overflow-y: scroll;
+  height: 400px;
+}
+#EmojiDiv a{
+  font-size: 40px;
+  padding: 10px;
+  text-decoration: none;
+}
+.modal-mic{
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  width: 200px;
+  background-color: var(--light-accent);
+}
+#closed{
+  float: right;
+  font-size: 25px;
+  cursor: pointer;
+  color: var(--text-color);
+}
+#MicDiv{
+  padding: 1rem;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #b3b7d1;
+}
+#micstate{
+  font-size: 45px;
+}
+#MicDiv small{
+  font-size: 23px;
+}
+.ChatListHeader{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.ChatListHeader img{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+.ChatListHeader i{
+  font-size: 25px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+.ChatListHeader i:hover{
+  opacity: 0.7;
+}
+.ChatListSearch{
+  height: 50px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.ChatListSearch input{
+  height: 100%;
+  width: 70%;
+  background-color: var(--dark-accent);
+  padding: 1rem;
+  border: none;
+  border-radius: 50px;
+  color: var(--text-color);
+  outline: none;
+  opacity: 0.8;
+}
+.HeaderContents{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.HeaderContents small{
+  color: var(--text-color);
+  font-size: 16px;
+  padding-left: 10px;
+}
+.ChatUsersList{
+  margin-top: 20px;
+  height: 80%;
+}
+.ChatUsersList ul{
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.ChatUsersList .listRecentItem{
+  height: 90px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.4s;
+  border-top: 1px solid var(--dark-accent);
+}
+.ChatUsersList .listRecentItem:hover{
+  background-color: var(--dark-accent);
+  border-left: 6px solid var(--pink-color);
+}
+.ChatUsersList .listRecentItem img{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.ChatUsersList .listRecentItem div{
+  padding-left: 15px;
+}
+.ChatUsersList .listRecentItem div h4{
+  color: var(--text-color);
+  font-weight: 500;
+}
+.ChatUsersList .listRecentItem div small{
+  color: var(--text-color);
+  opacity: 0.7;
+  font-size: 11px;
+}
+.titleRecent{
+  padding: 1rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* ALL USERS */
+.UserListSearch{
+  height: 50px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.UserListSearch input{
+  height: 100%;
+  width: 70%;
+  background-color: var(--dark-accent);
+  padding: 1rem;
+  border: none;
+  border-radius: 50px;
+  color: var(--text-color);
+  outline: none;
+  opacity: 0.8;
+  margin-top: 2rem;
+}
+.UserUsersList{
+  margin-top: 20px;
+  height: 80%;
+}
+.UserUsersList ul{
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.UserUsersList .listUserItem{
+  height: 90px;
+  padding: 1rem;
+  cursor: pointer;
+  border-top: 1px solid var(--dark-accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.UserUsersList .listUserItem .one{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.UserUsersList .listUserItem .buttonChat{
+  background-color: var(--pink-color);
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 0.5s;
+}
+.UserUsersList .listUserItem .two:hover{
+  opacity: 0.8;
+}
+.UserUsersList .listUserItem img{
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+.UserUsersList .listUserItem div{
+  padding-left: 15px;
+}
+.UserUsersList .listUserItem div h4{
+  color: var(--text-color);
+  font-weight: 500;
+}
+.UserUsersList .listUserItem div small{
+  color: var(--text-color);
+  opacity: 0.7;
+}
+.titleall{
+  padding: 1rem;
+  color: var(--text-color);
+  font-weight: 500;
+}
+.login{
+  height: 100vh;
+  width: 100%;
+  background-color: var(--dark-accent);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.login i{
+  font-size: 65px;
+  color: #ffffff;
+}
+.login h1{
+  color: #ffffff;
+  font-size: 25px;
+}
+.login .loginButton{
+  width: 170px;
+  margin-top: 15px;
+  cursor: pointer;
+  height: 40px;
+  font-size: 500;
+  color: #fff;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pink-color);
+  transition: all 0.5s;
+}
+.login .loginButton:hover{
+  opacity: 0.7;
+}
+.lds-heart {
+  display: none;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+  position: absolute;
+  top: 45%;
+  left: 42%;
+  z-index: 1233333333333;
+}
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+}
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-height: 700px){
+  .ChatUsersList ul{
+    height: 94%;
+  }
+  .UserUsersList .listUserItem .one h4{
+    padding-left: 5px;
+  }
+}
+@media (max-width: 450px){
+  .ChatUsersList .listRecentItem div{
+    display: none;
+  }
+  .ChatUsersList .listRecentItem{
+    justify-content: center;
+  }
+  .UserUsersList .listUserItem .one div{
+    display: none;
+  }
+}
