@@ -132,7 +132,6 @@ function LoadChatList() {
     const friends_lists = {};
     var db = firebase.database().ref('connection_list');
     db.on('value', function(lists) {
-        document.getElementById("RECENTUSERS").innerHTML = "";
         lists.forEach(function(data) {
             var lst = data.val();
             var friendKey = '';
@@ -161,6 +160,7 @@ function LoadChatList() {
           </li>`;
         }
         document.getElementById('loader').style.display = "none";
+        document.getElementById("RECENTUSERS").innerHTML = "";
         document.getElementById("RECENTUSERS").innerHTML += li_data;
 
 
